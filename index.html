@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>درس فعل الأمر وعلامات بنائه - الصف الثاني الإعدادي</title>
+    <!-- استدعاء خط احترافي -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #14532d;      
+            --primary-light: #22c55e; 
+            --secondary: #047857;    
+            --success: #10b981;      
+            --danger: #ef4444;       
+            --warning: #0d9488;      
+            --dark: #1e293b;         
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            background-image: radial-gradient(#bbf7d0 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        .hidden { display: none !important; }
+        
+        /* --- الهيدر الرئيسي --- */
+        .header-main {
+            background: linear-gradient(135deg, #052e16, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 20px 90px 20px; 
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-line1 {
+            font-size: clamp(1.1rem, 4vw, 1.5rem); 
+            font-weight: 700;
+            color: #dcfce7;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-line2 {
+            font-size: clamp(1.5rem, 6.5vw, 2.6rem); 
+            font-weight: 900;
+            background: linear-gradient(to right, #bbf7d0, #4ade80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.5));
+            line-height: 1.1;
+        }
+
+        .header-main h2 { font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 600; color: #fdf2f8; margin-bottom: 8px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);}
+        .header-main p { font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 600; background: rgba(0,0,0,0.3); display: inline-block; padding: 6px 20px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+
+        .header-wave {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* --- الأزرار --- */
+        .btn {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(2px); border-bottom: 0px; margin-top: 3px; }
+        .btn-correct { filter: brightness(1.2); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+        .btn-wrong { filter: brightness(0.8); pointer-events: none; border-bottom-width: 0; transform: translateY(2px);}
+
+        /* --- الشاشة الرئيسية --- */
+        #home-screen {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+            padding-bottom: 80px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        .menu-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: rgba(99, 102, 241, 0.2); }
+        .menu-card:hover::before { opacity: 1; }
+        
+        .menu-card .icon-container {
+            width: 80px; height: 80px;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 3px 6px rgba(255,255,255,0.8), 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .menu-card .icon-container svg {
+            width: 40px; height: 40px; stroke: #14532d; fill: none;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+        }
+        .menu-card:hover .icon-container { transform: scale(1.1) rotate(10deg); }
+        .menu-card h3 { font-size: 1.4rem; color: var(--dark); font-weight: 800; margin-bottom: 8px;}
+        .menu-card p { font-size: 1rem; color: #64748b; font-weight: 600;}
+
+        /* --- شاشة اللعب --- */
+        #game-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-nav {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+        }
+        .back-btn { background: #e2e8f0; color: var(--dark); border-bottom: 3px solid #cbd5e1; padding: 8px 15px;}
+        #game-progress { background: #22c55e; color: white; padding: 6px 15px; border-radius: 20px;}
+        
+        .game-container {
+            flex: 1;
+            padding: 0 20px 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .question-box {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            font-weight: 800;
+            color: #14532d;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            border-right: 8px solid #047857;
+            line-height: 1.6;
+        }
+
+        .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-6px, 0, 0); }
+            40%, 60% { transform: translate3d(6px, 0, 0); }
+        }
+
+        /* MCQ Style */
+        .options-grid { display: flex; flex-direction: column; gap: 15px; }
+        .options-grid .btn { padding: 18px; font-size: clamp(1.1rem, 3.5vw, 1.4rem); text-align: right; justify-content: flex-start; border-radius: 12px;}
+
+        /* True/False Style */
+        .tf-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+        /* Bubbles Style */
+        .bubbles-area {
+            position: relative; height: 400px;
+            background: linear-gradient(to bottom, #052e16, #14532d);
+            border-radius: 16px; overflow: hidden;
+            border: 4px solid #22c55e; margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(220,252,231,0.9));
+            color: #14532d;
+            border: 2px solid #ffffff;
+            padding: 10px 5px;
+            border-radius: 30px;
+            font-weight: 800; font-size: clamp(0.85rem, 2vw, 1.05rem);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2), inset -4px -4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s, background 0.2s;
+            z-index: 5;
+        }
+        .bubble:hover { transform: scale(1.05); }
+        .bubble::after {
+            content: ''; position: absolute; top: 10%; left: 15%;
+            width: 20%; height: 20%; background: rgba(255,255,255,0.8);
+            border-radius: 50%; filter: blur(2px);
+        }
+
+        /* Shooting Style */
+        .shooting-area {
+            position: relative; height: 400px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect fill="%23ecfdf5" width="100%" height="100%"/><circle fill="%23bbf7d0" cx="20%" cy="30%" r="50"/><circle fill="%23bbf7d0" cx="80%" cy="60%" r="70"/><circle fill="%23bbf7d0" cx="50%" cy="80%" r="40"/></svg>') no-repeat center center;
+            background-size: cover; border-radius: 16px; overflow: hidden;
+            border: 4px solid #22c55e; margin-top: 10px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+        }
+        .target-bird {
+            position: absolute; background: white; color: var(--dark);
+            padding: 10px 20px; border-radius: 30px; font-weight: 800; font-size: clamp(0.95rem, 3vw, 1.15rem);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15); cursor: crosshair;
+            border: 3px solid var(--warning); white-space: nowrap; transition: background 0.2s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .target-bird:hover { transform: scale(1.05); background: #fffbeb; }
+
+        /* Genius Challenge Style */
+        .genius-wrap {
+            background: linear-gradient(135deg, #052e16, #14532d, #047857);
+            border-radius: 16px; padding: 20px; margin-top: 10px;
+            border: 4px solid #4ade80; box-shadow: inset 0 0 25px rgba(0,0,0,0.4), 0 10px 20px rgba(16,185,129,0.3);
+        }
+        .genius-timer-track {
+            width: 100%; height: 14px; background: rgba(0,0,0,0.35);
+            border-radius: 10px; overflow: hidden; margin-bottom: 18px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .genius-timer-bar {
+            height: 100%; width: 100%;
+            background: linear-gradient(to right, #4ade80, #facc15, #ef4444);
+            border-radius: 10px;
+            transition: width 0.1s linear;
+        }
+        .genius-options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (max-width: 600px) { .genius-options { grid-template-columns: 1fr; } }
+        .genius-options .btn {
+            padding: 16px 10px; font-size: clamp(1rem, 3vw, 1.25rem);
+            background: linear-gradient(to bottom, #34d399, #047857);
+            border-bottom: 3px solid #064e3b; border-radius: 14px; min-height: 70px;
+        }
+        .genius-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(74, 222, 128, 0.15); color: #bbf7d0;
+            font-weight: 800; padding: 6px 16px; border-radius: 20px;
+            border: 1px solid rgba(74,222,128,0.4); margin-bottom: 12px; font-size: 0.95rem;
+        }
+
+        /* Result Share (WhatsApp) */
+        .share-box {
+            margin-top: 25px; background: #f0fdf4; border: 2px solid #bbf7d0;
+            border-radius: 16px; padding: 20px; text-align: center;
+        }
+        .share-box h4 { color: #166534; font-size: 1.2rem; margin-bottom: 12px; font-weight: 800;}
+        .share-name-input {
+            width: 100%; max-width: 320px; padding: 12px 16px; border-radius: 12px;
+            border: 2px solid #86efac; font-size: 1.05rem; text-align: center;
+            font-family: 'Cairo', sans-serif; font-weight: 700; margin-bottom: 12px;
+            color: var(--dark);
+        }
+        .share-name-input:focus { outline: none; border-color: #16a34a; }
+        .btn-share {
+            background: linear-gradient(to bottom, #25d366, #1da851);
+            border-bottom-color: #128c3e; display: inline-flex; gap: 10px;
+        }
+        .share-warning { color: var(--danger); font-weight: 700; font-size: 0.9rem; margin-top: 8px; display: none; }
+
+        /* Modal Overlay */
+        .overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .overlay.active { opacity: 1; pointer-events: all; }
+        .modal {
+            background: white; padding: 40px; border-radius: 25px;
+            text-align: center; max-width: 90%; width: 400px;
+            transform: scale(0.7) translateY(50px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        }
+        .overlay.active .modal { transform: scale(1) translateY(0); }
+        .modal-icon { display: flex; justify-content: center; margin-bottom: 20px; }
+
+        /* Summary Errors Scrolling */
+        .errors-list::-webkit-scrollbar { width: 8px; }
+        .errors-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+        .errors-list::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* الفوتر (Footer) */
+        .footer-main {
+            background: var(--dark); color: #cbd5e1;
+            text-align: center; padding: 25px 20px; margin-top: auto;
+            border-top: 4px solid var(--primary);
+        }
+        .footer-main p { margin: 5px 0; font-size: 1.1rem; font-weight: 600;}
+        .footer-main .designer { font-size: 1rem; color: #94a3b8; font-weight: 400;}
+
+        /* WhatsApp */
+        .whatsapp-float {
+            position: fixed; bottom: 25px; left: 25px;
+            background: #25d366; color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            text-decoration: none; box-shadow: 0 8px 15px rgba(37, 211, 102, 0.4);
+            z-index: 100; transition: all 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.15) rotate(-5deg); box-shadow: 0 12px 20px rgba(37, 211, 102, 0.6); }
+        .whatsapp-float svg { width: 35px; height: 35px; fill: currentColor; }
+
+        /* Confetti effect */
+        .confetti {
+            position: fixed; top: -10px; width: 12px; height: 12px; z-index: 9999;
+            animation: fall linear forwards; border-radius: 3px;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر مع اللوجو -->
+    <header class="header-main" id="main-header">
+        <div class="header-content">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                <!-- اللوجو (على اليمين) -->
+                <img src="logo.jpeg" alt="شعار الأستاذ محمد فرج منصور" style="width: 260px; height: 260px; border-radius: 30px; border: 4px solid var(--warning); box-shadow: 0 8px 16px rgba(0,0,0,0.4); background-color: white; object-fit: cover; flex-shrink: 0;">
+                
+                <!-- النصوص -->
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <h1 class="title-line1">
+                        درس 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#bbf7d0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        لعبة
+                    </h1>
+                    <h1 class="title-line2">مع الأستاذ محمد فرج منصور</h1>
+                    <h2>الصَّفُّ الثَّانِي الْإِعْدَادِيُّ - الْوَحْدَةُ الْأُولَى - فِعْلُ الْأَمْرِ (عَلَامَاتُ الْبِنَاءِ)</h2>
+                    <p style="margin-top: 10px;">الْقَوَاعِدُ النَّحْوِيَّةُ</p>
+                </div>
+            </div>
+        </div>
+        <!-- تموجات زخرفية -->
+        <svg class="header-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#f0f4f8" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,170.7C960,160,1056,192,1152,208C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </header>
+
+    <!-- الشاشة الرئيسية -->
+    <div id="home-screen">
+        <div class="grid-menu" id="menu-grid">
+            <!-- سيتم حقن البطاقات هنا برمجياً -->
+        </div>
+    </div>
+
+    <!-- شاشة اللعب -->
+    <div id="game-screen" class="hidden">
+        <div class="game-nav">
+            <button class="btn back-btn" onclick="returnToMenu()">
+                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                رجوع
+            </button>
+            <strong id="game-title">عنوان اللعبة</strong>
+            <span id="game-progress">1 / 25</span>
+        </div>
+        <div class="game-container" id="game-container">
+            <!-- سيتم حقن الأسئلة هنا برمجياً -->
+        </div>
+    </div>
+
+    <!-- نافذة الملاحظات السريعة -->
+    <div class="overlay" id="feedback-modal">
+        <div class="modal">
+            <div class="modal-icon" id="feedback-icon"></div>
+            <h2 id="feedback-title" style="font-size: 2.5rem; font-weight: 900;">إجابة صحيحة!</h2>
+        </div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="footer-main" id="main-footer">
+        <p>جميع الحقوق محفوظة &copy; | درس ولعبة مع الأستاذ محمد فرج منصور</p>
+        <p class="designer">الأستاذ / محمد فرج منصور</p>
+    </footer>
+
+    <!-- زر الواتساب -->
+    <a href="https://wa.me/201143270328" class="whatsapp-float" target="_blank" title="تواصل معنا">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/>
+        </svg>
+    </a>
+
+<script>
+    const LESSON_NAME = "فعل الأمر (علامات البناء)";
+    const allGamesData = [
+            {
+                        "id": "mcq_amr",
+                        "title": "أفهم القاعدة",
+                        "type": "mcq",
+                        "desc": "القواعد النحوية: فعل الأمر وعلامات بنائه",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><polygon points=\"11 5 6 9 2 9 2 15 6 15 11 19 11 5\"></polygon><path d=\"M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07\"></path></svg>",
+                        "questions": [
+                                    {
+                                                "q": "ما حكم فعل الأمر من حيث الإعراب والبناء؟",
+                                                "options": [
+                                                            "مبني دائمًا",
+                                                            "معرب دائمًا",
+                                                            "معرب أحيانًا",
+                                                            "لا يدخل في هذا الباب"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "على أي أساس يُبنى فعل الأمر؟",
+                                                "options": [
+                                                            "على ما يُجزم به مضارعه",
+                                                            "على ما يُرفع به مضارعه",
+                                                            "على ما يُنصب به مضارعه",
+                                                            "لا علاقة بين الأمر والمضارع"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "في جملة «اكتبْ واجبَك» الفعل «اكتبْ» مبني على:",
+                                                "options": [
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "الضم",
+                                                            "حذف النون"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "متى يُبنى فعل الأمر على السكون؟",
+                                                "options": [
+                                                            "إذا كان صحيح الآخر ولم يتصل بشيء",
+                                                            "إذا كان معتل الآخر",
+                                                            "إذا كان من الأفعال الخمسة",
+                                                            "إذا اتصل بنون التوكيد"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "في جملة «اسعَ إلى الخير» الفعل «اسعَ» مبني على:",
+                                                "options": [
+                                                            "حذف حرف العلة",
+                                                            "السكون",
+                                                            "حذف النون",
+                                                            "الفتح"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "متى يُبنى فعل الأمر بحذف حرف العلة؟",
+                                                "options": [
+                                                            "إذا كان معتل الآخر",
+                                                            "إذا كان صحيح الآخر",
+                                                            "إذا كان من الأفعال الخمسة",
+                                                            "إذا اتصل بنون النسوة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "في جملة «اكتبوا واجباتِكم» الفعل «اكتبوا» مبني على:",
+                                                "options": [
+                                                            "حذف النون",
+                                                            "السكون",
+                                                            "حذف حرف العلة",
+                                                            "الفتح"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "متى يُبنى فعل الأمر بحذف النون؟",
+                                                "options": [
+                                                            "إذا كان من الأفعال الخمسة",
+                                                            "إذا كان صحيح الآخر",
+                                                            "إذا كان معتل الآخر",
+                                                            "إذا اتصل بنون التوكيد"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "في جملة «اكتبي واجبَك» (للمخاطبة) الفعل «اكتبي» مبني على:",
+                                                "options": [
+                                                            "حذف النون",
+                                                            "السكون",
+                                                            "حذف حرف العلة",
+                                                            "الفتح"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "في جملة «اكتبا واجبَكما» (للمثنى) الفعل «اكتبا» مبني على:",
+                                                "options": [
+                                                            "حذف النون",
+                                                            "السكون",
+                                                            "حذف حرف العلة",
+                                                            "الفتح"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "في جملة «اكتبَنَّ واجبَك» الفعل «اكتبَنَّ» مبني على:",
+                                                "options": [
+                                                            "الفتح لاتصاله بنون التوكيد المباشرة",
+                                                            "السكون",
+                                                            "الضم",
+                                                            "حذف النون"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "متى يُبنى فعل الأمر على الفتح؟",
+                                                "options": [
+                                                            "إذا اتصل بنون التوكيد المباشرة",
+                                                            "إذا كان صحيح الآخر",
+                                                            "إذا كان معتل الآخر",
+                                                            "إذا كان من الأفعال الخمسة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "في جملة «ارمِ الكرةَ» الفعل «ارمِ» مبني على:",
+                                                "options": [
+                                                            "حذف حرف العلة",
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "في جملة «ادعُ ربَّك بخشوع» الفعل «ادعُ» مبني على:",
+                                                "options": [
+                                                            "حذف حرف العلة",
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما عدد علامات بناء فعل الأمر؟",
+                                                "options": [
+                                                            "أربع علامات: السكون والفتح وحذف النون وحذف حرف العلة",
+                                                            "علامة واحدة فقط",
+                                                            "علامتان فقط",
+                                                            "ثلاث علامات فقط بلا الفتح"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "في جملة «اجلسْنَ في الصفوف» (للمخاطبات) الفعل «اجلسْنَ» مبني على:",
+                                                "options": [
+                                                            "السكون لاتصاله بنون النسوة",
+                                                            "الفتح",
+                                                            "الضم",
+                                                            "حذف النون"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "لماذا يُبنى فعل الأمر «اكتبْ» على السكون بينما يُبنى فعل الأمر «اسعَ» على حذف حرف العلة رغم أن كليهما مضارعه مجزوم؟",
+                                                "options": [
+                                                            "لأن «اكتبْ» صحيح الآخر يقبل السكون ظاهرًا، بينما «اسعَ» معتل الآخر يتعذر عليه السكون فيُحذف حرف علته",
+                                                            "لأن الفعلين مختلفان تمامًا في المعنى فقط",
+                                                            "لأن أحدهما فعل أمر والآخر ليس كذلك",
+                                                            "لا سبب نحوي لذلك"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما العلاقة بين علامة بناء فعل الأمر وعلامة جزم مضارعه المقابل؟",
+                                                "options": [
+                                                            "فعل الأمر يتبع في بنائه نفس علامة الجزم التي يُجزم بها مضارعه تمامًا",
+                                                            "لا علاقة بينهما إطلاقًا",
+                                                            "فعل الأمر يُبنى دائمًا على السكون بصرف النظر عن مضارعه",
+                                                            "مضارع فعل الأمر لا يُجزم أصلًا"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما حكم فعل الأمر المتصل بنون النسوة من حيث البناء؟",
+                                                "options": [
+                                                            "يُبنى على السكون كحال المضارع المتصل بنون النسوة",
+                                                            "يُبنى على الفتح",
+                                                            "يُبنى على حذف النون",
+                                                            "يُبنى على حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "لماذا يُعد فعل الأمر «تابعًا» لفعله المضارع في حكم بنائه رغم كونه مبنيًّا دائمًا؟",
+                                                "options": [
+                                                            "لأن حركة بنائه تتحدد وفق نوع مضارعه فتختلف تبعًا لذلك",
+                                                            "لأن فعل الأمر يُبنى دائمًا على حركة واحدة ثابتة بصرف النظر عن مضارعه",
+                                                            "لأن فعل الأمر لا علاقة له بالمضارع إطلاقًا",
+                                                            "لأن المضارع هو الذي يتبع فعل الأمر لا العكس"
+                                                ],
+                                                "ans": 0
+                                    }
+                        ]
+            },
+            {
+                        "id": "class_amr",
+                        "title": "الفقاعات المتساقطة",
+                        "type": "bubbles",
+                        "desc": "حدّد علامة بناء فعل الأمر في الجملة",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"></path><path d=\"M22 12A10 10 0 0 0 12 2v10z\"></path></svg>",
+                        "questions": [
+                                    {
+                                                "q": "«اجلسْ في مكانك» الفعل «اجلسْ» مبني على:",
+                                                "options": [
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«افتحْ البابَ» الفعل «افتحْ» مبني على:",
+                                                "options": [
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«اجلسُوا في الصفوف» الفعل «اجلسُوا» مبني على:",
+                                                "options": [
+                                                            "حذف النون",
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«افتحَا البابَ معًا» الفعل «افتحَا» مبني على:",
+                                                "options": [
+                                                            "حذف النون",
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«اجلسي في مكانك» (للمخاطبة) الفعل «اجلسي» مبني على:",
+                                                "options": [
+                                                            "حذف النون",
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«اسعَ نحو هدفك» الفعل «اسعَ» مبني على:",
+                                                "options": [
+                                                            "حذف حرف العلة",
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«ارمِ الكرةَ بقوة» الفعل «ارمِ» مبني على:",
+                                                "options": [
+                                                            "حذف حرف العلة",
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«ادعُ اللهَ بخشوع» الفعل «ادعُ» مبني على:",
+                                                "options": [
+                                                            "حذف حرف العلة",
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«اقرأَنَّ درسَك جيدًا» الفعل «اقرأَنَّ» مبني على:",
+                                                "options": [
+                                                            "الفتح",
+                                                            "السكون",
+                                                            "حذف النون",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«اجتهدَنَّ في عملك» الفعل «اجتهدَنَّ» مبني على:",
+                                                "options": [
+                                                            "الفتح",
+                                                            "السكون",
+                                                            "حذف النون",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«اذهبْنَ إلى المدرسة» (للمخاطبات) الفعل «اذهبْنَ» مبني على:",
+                                                "options": [
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«احفظْنَ دروسكنّ» الفعل «احفظْنَ» مبني على:",
+                                                "options": [
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«اكتُبَا واجبَكما» الفعل «اكتُبَا» مبني على:",
+                                                "options": [
+                                                            "حذف النون",
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«العبُوا في الملعب» الفعل «العبُوا» مبني على:",
+                                                "options": [
+                                                            "حذف النون",
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«اسمُ بأخلاقك» الفعل «اسمُ» مبني على:",
+                                                "options": [
+                                                            "حذف حرف العلة",
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«امشِ بتؤدة» الفعل «امشِ» مبني على:",
+                                                "options": [
+                                                            "حذف حرف العلة",
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«اعفُ عن المسيء» الفعل «اعفُ» مبني على:",
+                                                "options": [
+                                                            "حذف حرف العلة",
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«اصبرْ على الشدائد» الفعل «اصبرْ» مبني على:",
+                                                "options": [
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«تعلّمَنَّ الأدبَ من صغرك» الفعل «تعلّمَنَّ» مبني على:",
+                                                "options": [
+                                                            "الفتح",
+                                                            "السكون",
+                                                            "حذف النون",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "«التزمْنَ بالنظام» (للمخاطبات) الفعل «التزمْنَ» مبني على:",
+                                                "options": [
+                                                            "السكون",
+                                                            "الفتح",
+                                                            "حذف النون",
+                                                            "حذف حرف العلة"
+                                                ],
+                                                "ans": 0
+                                    }
+                        ]
+            },
+            {
+                        "id": "shoot_amr",
+                        "title": "التنشين والاصطياد",
+                        "type": "shooting",
+                        "desc": "أكمل الجملة بفعل الأمر الصحيح، وصوّب الخطأ",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"12\" r=\"6\"></circle><circle cx=\"12\" cy=\"12\" r=\"2\"></circle></svg>",
+                        "questions": [
+                                    {
+                                                "q": "أكمل: «... البابَ» (فعل أمر مبني على السكون من «فتح»).",
+                                                "options": [
+                                                            "افتحْ",
+                                                            "افتحُوا",
+                                                            "افتحِي",
+                                                            "افتحَنَّ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... البابَ يا أولاد» (فعل أمر مبني على حذف النون لجمع المذكر).",
+                                                "options": [
+                                                            "افتحُوا",
+                                                            "افتحْ",
+                                                            "افتحِي",
+                                                            "افتحَنَّ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... البابَ يا فتاة» (فعل أمر مبني على حذف النون للمخاطبة).",
+                                                "options": [
+                                                            "افتحِي",
+                                                            "افتحْ",
+                                                            "افتحُوا",
+                                                            "افتحَنَّ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... نحو هدفك» (فعل أمر مبني على حذف حرف العلة من «سعى»).",
+                                                "options": [
+                                                            "اسعَ",
+                                                            "اسعى",
+                                                            "اسعُوا",
+                                                            "اسعِي"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... الكرةَ بقوة» (فعل أمر مبني على حذف حرف العلة من «رمى»).",
+                                                "options": [
+                                                            "ارمِ",
+                                                            "ارمى",
+                                                            "ارموا",
+                                                            "ارمين"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... اللهَ بخشوع» (فعل أمر مبني على حذف حرف العلة من «دعا»).",
+                                                "options": [
+                                                            "ادعُ",
+                                                            "ادعو",
+                                                            "ادعوا",
+                                                            "ادعين"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... درسَك جيدًا» (فعل أمر مبني على الفتح بنون التوكيد من «اقرأ»).",
+                                                "options": [
+                                                            "اقرأَنَّ",
+                                                            "اقرأْ",
+                                                            "اقرأُوا",
+                                                            "اقرئي"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... إلى المدرسة» (فعل أمر مبني على السكون من «ذهب» لنون النسوة).",
+                                                "options": [
+                                                            "اذهبْنَ",
+                                                            "اذهبَنَّ",
+                                                            "اذهبُوا",
+                                                            "اذهبْ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... واجبَكما» (فعل أمر مبني على حذف النون من «كتب» للمثنى).",
+                                                "options": [
+                                                            "اكتُبَا",
+                                                            "اكتُبْ",
+                                                            "اكتُبُوا",
+                                                            "اكتُبِي"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... في الملعب» (فعل أمر مبني على حذف النون من «لعب» لجمع المذكر).",
+                                                "options": [
+                                                            "العبُوا",
+                                                            "العبْ",
+                                                            "العبِي",
+                                                            "العبَنَّ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... بأخلاقك» (فعل أمر مبني على حذف حرف العلة من «سما»).",
+                                                "options": [
+                                                            "اسمُ",
+                                                            "اسمو",
+                                                            "اسموا",
+                                                            "اسمين"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... بتؤدة» (فعل أمر مبني على حذف حرف العلة من «مشى»).",
+                                                "options": [
+                                                            "امشِ",
+                                                            "امشي",
+                                                            "امشوا",
+                                                            "امشين"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... على الشدائد» (فعل أمر مبني على السكون من «صبر»).",
+                                                "options": [
+                                                            "اصبرْ",
+                                                            "اصبرُوا",
+                                                            "اصبرِي",
+                                                            "اصبرَنَّ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "صوّب الخطأ: «اكتبَ واجبَك» (بلا نون توكيد) - الصواب:",
+                                                "options": [
+                                                            "اكتبْ (بالسكون)",
+                                                            "اكتبَ كما هي",
+                                                            "اكتبُ",
+                                                            "اكتبون"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "صوّب الخطأ: «اكتبْ واجباتِكم يا أولاد» (لجمع المذكر) - الصواب:",
+                                                "options": [
+                                                            "اكتبُوا (بحذف النون)",
+                                                            "اكتبْ كما هي",
+                                                            "اكتبَ",
+                                                            "اكتبْنَ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "صوّب الخطأ: «اسعى نحو هدفِك» (أمر) - الصواب:",
+                                                "options": [
+                                                            "اسعَ (بحذف حرف العلة)",
+                                                            "اسعى كما هي",
+                                                            "اسعو",
+                                                            "اسعين"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "صوّب الخطأ: «اقرأْ درسَك جيدًا» (مع نون التوكيد المطلوبة) - الصواب:",
+                                                "options": [
+                                                            "اقرأَنَّ (بالفتح مع نون التوكيد)",
+                                                            "اقرأْ كما هي",
+                                                            "اقرأُ",
+                                                            "اقرئي"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "صوّب الخطأ: «اذهبَ إلى المدرسة يا فتيات» (لنون النسوة) - الصواب:",
+                                                "options": [
+                                                            "اذهبْنَ (بالسكون)",
+                                                            "اذهبَ كما هي",
+                                                            "اذهبُوا",
+                                                            "اذهبِي"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... عن المسيء» (فعل أمر مبني على حذف حرف العلة من «عفا»).",
+                                                "options": [
+                                                            "اعفُ",
+                                                            "اعفو",
+                                                            "اعفوا",
+                                                            "اعفين"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "أكمل: «... بالنظام يا فتيات» (فعل أمر مبني على السكون من «التزم» لنون النسوة).",
+                                                "options": [
+                                                            "التزمْنَ",
+                                                            "التزمَ",
+                                                            "التزمُوا",
+                                                            "التزمِي"
+                                                ],
+                                                "ans": 0
+                                    }
+                        ]
+            },
+            {
+                        "id": "tf_amr",
+                        "title": "صح أم خطأ",
+                        "type": "true_false",
+                        "desc": "هل القاعدة صحيحة أم خاطئة؟",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path><polyline points=\"22 4 12 14.01 9 11.01\"></polyline></svg>",
+                        "questions": [
+                                    {
+                                                "q": "فعل الأمر مبني دائمًا.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "فعل الأمر يُبنى على ما يُجزم به مضارعه.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "فعل الأمر الصحيح الآخر الذي لم يتصل بشيء يُبنى على الضم.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 1
+                                    },
+                                    {
+                                                "q": "فعل الأمر المعتل الآخر يُبنى على حذف حرف العلة.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "فعل الأمر من الأفعال الخمسة يُبنى على حذف النون.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "فعل الأمر المتصل بنون التوكيد المباشرة يُبنى على الكسر.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 1
+                                    },
+                                    {
+                                                "q": "في جملة «اكتبْ واجبَك» الفعل «اكتبْ» مبني على السكون.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "في جملة «اكتبوا واجباتِكم» الفعل «اكتبوا» مبني على السكون.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 1
+                                    },
+                                    {
+                                                "q": "في جملة «اسعَ إلى الخير» الفعل «اسعَ» مبني على حذف حرف العلة.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "في جملة «اكتبَنَّ واجبَك» الفعل «اكتبَنَّ» مبني على الفتح.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "لفعل الأمر أربع علامات بناء: السكون، والفتح، وحذف النون، وحذف حرف العلة.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "فعل الأمر المتصل بنون النسوة يُبنى على الفتح.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 1
+                                    },
+                                    {
+                                                "q": "لا علاقة بين علامة بناء فعل الأمر وعلامة جزم مضارعه.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 1
+                                    },
+                                    {
+                                                "q": "فعل الأمر «ارمِ» مبني على حذف حرف العلة.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "فعل الأمر «اجلسي» (للمخاطبة) مبني على حذف النون.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "جميع أفعال الأمر تُبنى على السكون بغض النظر عمّا يتصل بها.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 1
+                                    },
+                                    {
+                                                "q": "فعل الأمر «افتحَا» (للمثنى) مبني على السكون.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 1
+                                    },
+                                    {
+                                                "q": "فعل الأمر يُشتق أساسًا من الفعل المضارع المجزوم.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "لا يمكن أن يُبنى فعل الأمر على الفتح أبدًا.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 1
+                                    },
+                                    {
+                                                "q": "فعل الأمر «اذهبْنَ» (لنون النسوة) مبني على السكون.",
+                                                "options": [
+                                                            "صح",
+                                                            "خطأ"
+                                                ],
+                                                "ans": 0
+                                    }
+                        ]
+            },
+            {
+                        "id": "genius_amr",
+                        "title": "تحدي العباقرة",
+                        "type": "genius",
+                        "desc": "أسئلة تحليلية أعمق في فعل الأمر",
+                        "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9.663 17h4.673M12 3a6 6 0 0 0-6 6c0 1.887.454 2.921 1.5 4.5.5.75 1 1.5 1 2.5h7c0-1 .5-1.75 1-2.5C17.546 11.921 18 10.887 18 9a6 6 0 0 0-6-6z\"></path></svg>",
+                        "questions": [
+                                    {
+                                                "q": "لماذا يُعد فعل الأمر مبنيًّا دائمًا رغم اختلاف علامة بنائه من فعل لآخر؟",
+                                                "options": [
+                                                            "لأن البناء صفة ثابتة له، وإن اختلفت حركة أو علامة هذا البناء بحسب نوع الفعل ومضارعه",
+                                                            "لأن جميع أفعال الأمر تتفق في نفس الحركة دائمًا",
+                                                            "لأن فعل الأمر يتحول أحيانًا إلى معرب",
+                                                            "لا سبب نحوي لذلك"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما الأساس الذي يفسّر تبعية بناء فعل الأمر لحالة جزم مضارعه تحديدًا لا لحالة الرفع أو النصب؟",
+                                                "options": [
+                                                            "لأن الأمر في المعنى طلب حدوث الفعل، وهو أقرب دلاليًّا وصرفيًّا لصورة المضارع المجزوم منزوعة أداة الجزم",
+                                                            "لأن الأمر مشتق من الفعل الماضي أصلًا",
+                                                            "لأن حالة الرفع هي الأقرب للأمر لا الجزم",
+                                                            "لا علاقة صرفية بين الأمر والمضارع أصلًا"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما وجه الشبه بين علامتي حذف النون وحذف حرف العلة في بناء فعل الأمر؟",
+                                                "options": [
+                                                            "كلتاهما علامتان فرعيتان تحلان محل السكون الأصلي في حالات خاصة من الأفعال",
+                                                            "كلتاهما علامتان أصليتان",
+                                                            "كلتاهما تدلان على الفتح لا غيره",
+                                                            "لا شبه بينهما إطلاقًا"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "لماذا يُبنى فعل الأمر «اكتُبَا» على حذف النون رغم اتصاله بألف الاثنين لا بواو الجماعة؟",
+                                                "options": [
+                                                            "لأن ألف الاثنين من علامات الأفعال الخمسة أيضًا، وجميع صورها تشترك في حذف النون عند البناء",
+                                                            "لأن ألف الاثنين تستوجب دائمًا الفتح لا حذف النون",
+                                                            "لأن الفعل هنا ليس من الأفعال الخمسة أصلًا",
+                                                            "لا علاقة بين ألف الاثنين وحذف النون"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما الفرق الدقيق بين اشتقاق فعل الأمر من فعل صحيح الآخر واشتقاقه من فعل معتل الآخر؟",
+                                                "options": [
+                                                            "الأول يُبنى على السكون الظاهر مباشرة، بينما الثاني يستلزم حذف حرف العلة لتعذر بقاء السكون عليه",
+                                                            "لا فرق بينهما وكلاهما يُبنى على نفس العلامة",
+                                                            "الأول يُبنى على حذف حرف العلة والثاني على السكون",
+                                                            "كلاهما يُبنى على الفتح"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما دلالة اتفاق فعل الأمر والفعل المضارع في نفس علامة البناء عند اتصال كل منهما بنون النسوة أو نون التوكيد المباشرة؟",
+                                                "options": [
+                                                            "يعكس الترابط الصرفي العميق بين الأمر ومضارعه، فكلاهما يتأثر بنفس العوامل الصوتية بالطريقة ذاتها",
+                                                            "لا دلالة لذلك وهو تشابه عرضي محض",
+                                                            "يدل على أن الأمر والمضارع فعل واحد لا فعلان مختلفان",
+                                                            "يدل على خطأ في القاعدة يجب تصحيحه"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "لماذا يصعب أحيانًا التمييز بين فعل الأمر المبني على السكون والفعل المضارع المجزوم بالسكون دون قراءة السياق؟",
+                                                "options": [
+                                                            "لأن الصورة الظاهرة لكليهما واحدة، ولا يتضح الفرق إلا من خلال دلالة الطلب مقابل النفي أو غيره",
+                                                            "لأنهما نفس الفعل تمامًا بلا فرق",
+                                                            "لأن فعل الأمر لا يُبنى على السكون أصلًا",
+                                                            "لأن الفعل المضارع لا يُجزم بالسكون أصلًا"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما العلاقة بين معرفة علامات بناء فعل الأمر وسلامة الأداء اللغوي الشفوي والكتابي للمتعلم؟",
+                                                "options": [
+                                                            "تمكّنه من ضبط آخر فعل الأمر ضبطًا صحيحًا بحسب نوعه فيتجنب أخطاء نطقية وإملائية شائعة",
+                                                            "لا علاقة بين هذه القواعد والأداء اللغوي",
+                                                            "هذه القواعد نظرية بحتة لا أثر عملي لها",
+                                                            "يمكن نطق فعل الأمر وكتابته بأي صورة دون تأثر بالقاعدة"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما وجه الدقة في القول إن فعل الأمر «تابع» لمضارعه في حكم البناء لا مستقل عنه بقاعدة ذاتية؟",
+                                                "options": [
+                                                            "لأن حركة بنائه تُحدَّد بالرجوع إلى نوع الفعل المضارع المقابل له وحالة جزمه",
+                                                            "لأن فعل الأمر يُشتق من الفعل الماضي لا المضارع",
+                                                            "لأن فعل الأمر له قواعد بناء ثابتة لا تتغير أبدًا مهما كان مضارعه",
+                                                            "لا علاقة فعلية بين الأمر ومضارعه"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "لماذا يُعد فعل الأمر «اقرأَنَّ» مثالًا جيدًا على التقاء تأثيرين صرفيين مختلفين في آنٍ واحد؟",
+                                                "options": [
+                                                            "لأنه يجمع بين أصل الفعل الصحيح الآخر وتأثير نون التوكيد المباشرة التي تفرض عليه البناء على الفتح",
+                                                            "لأنه فعل معتل الآخر بالهمزة فقط",
+                                                            "لأنه من الأفعال الخمسة فقط دون أي تأثير آخر",
+                                                            "لا تأثيرات متعددة فيه وهو مثال بسيط جدًّا"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما الأثر الذي يحدثه حذف حرف العلة في فعل الأمر المعتل الآخر على شكل الفعل الظاهر مقارنة بأصله في المضارع؟",
+                                                "options": [
+                                                            "يقصّر الفعل بحذف الحرف الأخير فيبدو أقصر من صورته الأصلية في المضارع",
+                                                            "لا يتغير شكل الفعل إطلاقًا",
+                                                            "يطول الفعل بدلًا من أن يقصر",
+                                                            "يتحول حرف العلة إلى حرف صحيح بدلًا من حذفه"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما العلاقة بين تعدد علامات بناء فعل الأمر الأربع وتنوع صيغه الصرفية؟",
+                                                "options": [
+                                                            "كل صيغة صرفية تستدعي علامة بناء تناسب طبيعتها الصوتية، فتتوزع العلامات الأربع بحسب هذا التنوع",
+                                                            "لا علاقة بين الصيغة الصرفية وعلامة البناء",
+                                                            "جميع الصيغ الصرفية تُبنى بنفس العلامة دون استثناء",
+                                                            "تعدد العلامات عشوائي ولا صلة له بالصيغ الصرفية"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "لماذا يمكن اعتبار قاعدة «حذف النون» في فعل الأمر والفعل المضارع المنصوب أو المجزوم قاعدة واحدة جامعة؟",
+                                                "options": [
+                                                            "لأن السبب الصرفي واحد في الحالتين: كون الفعل من الأفعال الخمسة التي تستبدل ثبوت النون بحذفها في غير حالة الرفع",
+                                                            "لأن الأمر والمضارع المنصوب فعل واحد لا فعلان",
+                                                            "لا رابط بين القاعدتين إطلاقًا",
+                                                            "حذف النون خاص بفعل الأمر فقط دون المضارع"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما دلالة كون فعل الأمر لا يقبل دخول أدوات الجزم أو النصب عليه رغم بنائه التابع لجزم مضارعه؟",
+                                                "options": [
+                                                            "لأنه في الأصل طلب مباشر لا يحتاج لأداة تربطه بفعل آخر أو تُغيّر زمنه؛ فبناؤه لازم لصورة واحدة تخصه",
+                                                            "لأن فعل الأمر يقبل كل أدوات النصب والجزم كالمضارع تمامًا",
+                                                            "لأن فعل الأمر معرب لا مبني فلا يحتاج لهذا التفسير",
+                                                            "لا دلالة لذلك"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما وجه المقارنة بين استقلال بناء الفعل الماضي واستقلال بناء فعل الأمر عن الإعراب؟",
+                                                "options": [
+                                                            "كلاهما فعل مبني تتحدد علامة بنائه حسب ما يتصل به، لكن فعل الأمر يتأثر أيضًا بنوع مضارعه المجزوم به",
+                                                            "الماضي وحده يتأثر بالضمائر بينما الأمر ثابت دائمًا",
+                                                            "الأمر وحده يتأثر بما يتصل به بينما الماضي ثابت دائمًا",
+                                                            "لا مقارنة ممكنة بين الفعلين لاختلافهما التام"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "كيف يفسَّر عدم وجود علامة «الضم» ضمن علامات بناء فعل الأمر رغم وجودها ضمن علامات بناء الفعل الماضي؟",
+                                                "options": [
+                                                            "لأن الضم في الماضي مرتبط باتصاله بواو الجماعة، وفي حالة الأمر يقابله حذف النون لأن فعل الأمر يتبع الجزم لا الرفع",
+                                                            "لأن فعل الأمر لا يتصل بواو الجماعة أصلًا",
+                                                            "لأن الضم ممنوع من الأصل في كل الأفعال المبنية",
+                                                            "لا تفسير نحويًّا لذلك وهو أمر اعتباطي"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما الفائدة العملية من مقارنة فعل الأمر بمضارعه المجزوم عند تعلم قواعد البناء لأول مرة؟",
+                                                "options": [
+                                                            "تسهيل استنتاج علامة بناء الأمر بالرجوع إلى قاعدة مألوفة سبق للطالب دراستها بدلًا من حفظ قاعدة جديدة منفصلة",
+                                                            "لا فائدة من هذه المقارنة وتزيد الأمر تعقيدًا",
+                                                            "يجب فصل قواعد الأمر عن قواعد المضارع تمامًا بلا أي رابط",
+                                                            "هذه المقارنة تخص علماء النحو المتخصصين فقط لا الطلاب"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما دلالة استخدام أمثلة متنوعة (مفرد، مثنى، جمع، نون توكيد، نون نسوة) في تعليم بناء فعل الأمر؟",
+                                                "options": [
+                                                            "تغطية شاملة لكل الحالات التي تتغير فيها علامة البناء بحسب الصيغة الصرفية أو الضمير أو الحرف المتصل",
+                                                            "لا فائدة من هذا التنويع وتكفي أمثلة قليلة",
+                                                            "كل الحالات تُبنى بنفس الطريقة فلا داعي للتنويع",
+                                                            "التنويع هنا حشو لا غرض تعليمي منه"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "لماذا يُعد فهم العلاقة التبادلية بين بناء فعل الأمر وجزم الفعل المضارع مفتاحًا لفهم أعمق لنظام الأفعال في اللغة العربية؟",
+                                                "options": [
+                                                            "لأنه يكشف كيف ترتبط أزمنة الأفعال المختلفة بقواعد صرفية ونحوية مشتركة رغم اختلاف وظيفة كل منهما",
+                                                            "لأن الأمر والمضارع فعلان منفصلان تمامًا بلا أي رابط يُذكر",
+                                                            "لأن فهم هذه العلاقة لا يضيف أي فائدة لفهم النظام اللغوي ككل",
+                                                            "لأن هذه العلاقة تخص فرعًا ضيقًا جدًّا من النحو لا يستحق التعمق فيه"
+                                                ],
+                                                "ans": 0
+                                    },
+                                    {
+                                                "q": "ما الأثر الذي يحدثه ضبط بناء فعل الأمر بشكل صحيح على وضوح التواصل في الكتابة الرسمية أو التعليمية؟",
+                                                "options": [
+                                                            "الضبط الصحيح يعكس دقة لغوية تُظهر تمكن الكاتب من القواعد وتُجنّبه إرباك القارئ بأخطاء نحوية شائعة",
+                                                            "لا أثر لضبط فعل الأمر على وضوح التواصل",
+                                                            "يمكن كتابة فعل الأمر بأي ضبط دون أي تأثير على الفهم",
+                                                            "هذه القواعد تخص الامتحانات فقط لا التواصل الحقيقي"
+                                                ],
+                                                "ans": 0
+                                    }
+                        ]
+            }
+];
+
+    // --- محرك الصوت للمؤثرات التفاعلية ---
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new AudioContext();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playTone(freq, type, duration, vol = 0.1) {
+        if (!audioCtx) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function playCorrect() {
+        initAudio();
+        playTone(523.25, 'sine', 0.1, 0.1); 
+        setTimeout(() => playTone(659.25, 'sine', 0.1, 0.1), 100); 
+        setTimeout(() => playTone(783.99, 'sine', 0.2, 0.15), 200); 
+        setTimeout(() => playTone(1046.50, 'sine', 0.4, 0.2), 300); 
+        triggerConfetti();
+    }
+
+    function playWrong() {
+        initAudio();
+        playTone(300, 'sawtooth', 0.15, 0.1);
+        setTimeout(() => playTone(200, 'sawtooth', 0.25, 0.15), 150);
+        
+        const qBox = document.querySelector('.question-box');
+        if(qBox) {
+            qBox.classList.remove('shake');
+            void qBox.offsetWidth; 
+            qBox.classList.add('shake');
+        }
+    }
+
+    // --- مؤثرات بصرية ---
+    function triggerConfetti() {
+        const colors = ['#f72585', '#4cc9f0', '#fee440', '#00f5d4', '#8b5cf6'];
+        for(let i=0; i<40; i++) {
+            let conf = document.createElement('div');
+            conf.className = 'confetti';
+            conf.style.left = Math.random() * 100 + 'vw';
+            conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            conf.style.animationDuration = (Math.random() * 2 + 1) + 's';
+            document.body.appendChild(conf);
+            setTimeout(() => conf.remove(), 3000);
+        }
+    }
+
+    function shuffleArray(arr) {
+        return arr.map(a => ({sort: Math.random(), value: a}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value);
+    }
+
+    function showFeedback(isCorrect, callback) {
+        const modal = document.getElementById('feedback-modal');
+        const icon = document.getElementById('feedback-icon');
+        const title = document.getElementById('feedback-title');
+        
+        if (isCorrect) {
+            playCorrect();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+            title.textContent = 'إجابة صحيحة، بطل!';
+            title.style.color = 'var(--success)';
+        } else {
+            playWrong();
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+            title.textContent = 'إجابة خاطئة!';
+            title.style.color = 'var(--danger)';
+        }
+
+        modal.classList.add('active');
+        setTimeout(() => {
+            modal.classList.remove('active');
+            if (callback) callback();
+        }, 1300); // وقت الانتقال للسؤال التالي
+    }
+
+    // --- متغيرات محرك اللعبة ---
+    let currentGame = null;
+    let currentQuestions = [];
+    let qIndex = 0;
+    let animInterval = null;
+    let geniusTimerInterval = null;
+    let wrongAnswers = []; // مصفوفة لتخزين الأخطاء
+
+    // --- التهيئة ---
+    function initApp() {
+        const menuGrid = document.getElementById('menu-grid');
+        menuGrid.innerHTML = '';
+        allGamesData.forEach(game => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            card.innerHTML = `
+                <div class="icon-container">${game.icon}</div>
+                <h3>${game.title}</h3>
+                <p>${game.desc}</p>
+            `;
+            card.onclick = () => startGame(game);
+            menuGrid.appendChild(card);
+        });
+        
+        document.body.addEventListener('touchstart', initAudio, { once: true });
+        document.body.addEventListener('click', initAudio, { once: true });
+    }
+
+    function returnToMenu() {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        clearInterval(geniusTimerInterval);
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        document.getElementById('main-footer').classList.remove('hidden');
+    }
+
+    function updateProgress() {
+        document.getElementById('game-progress').innerText = `${qIndex + 1} / ${currentQuestions.length}`;
+    }
+
+    function gameComplete() {
+        const gc = document.getElementById('game-container');
+        playCorrect();
+        setTimeout(playCorrect, 300);
+
+        let score = currentQuestions.length - wrongAnswers.length;
+        let summaryHTML = '';
+
+        if (wrongAnswers.length > 0) {
+            summaryHTML += `
+            <div style="margin-top: 25px; text-align: right; background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; max-height: 350px; overflow-y: auto;" class="errors-list">
+                <h3 style="color: var(--danger); margin-bottom: 15px; text-align: center; font-size: 1.4rem;">الأسئلة التي أخطأت فيها 📝</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px;">`;
+            
+            wrongAnswers.forEach((item, index) => {
+                summaryHTML += `
+                <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-right: 5px solid var(--danger);">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 8px; font-size: 1.1rem;">${index + 1}. ${item.question}</div>
+                    <div style="color: #64748b; font-size: 1rem; margin-bottom: 5px;">إجابتك: <span style="color: var(--danger); text-decoration: line-through;">${item.selected}</span></div>
+                    <div style="color: var(--success); font-weight: bold; font-size: 1.1rem;">الإجابة الصحيحة: ${item.correct}</div>
+                </li>`;
+            });
+            summaryHTML += `</ul></div>`;
+        } else {
+            summaryHTML += `<p style="color: var(--success); font-size: 1.5rem; font-weight: bold; margin-top: 20px;">أداء مثالي! لم تخطئ في أي سؤال 🌟</p>`;
+        }
+
+        gc.innerHTML = `
+            <div style="text-align:center; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+                <div style="display:flex; justify-content:center; margin-bottom: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="var(--warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21h10"/><path d="M12 17v4"/><path d="M12 3v14"/><path d="M5 7h14"/><path d="M12 3l-4 4 4 4 4-4-4-4z"/></svg>
+                </div>
+                <h2 style="color: var(--primary); margin-bottom: 10px; font-size:2rem; font-weight:800;">انتهت اللعبة!</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 10px; color:#64748b; font-weight:bold;">نتيجتك: ${score} من ${currentQuestions.length}</p>
+                ${summaryHTML}
+                <div class="share-box">
+                    <h4>📲 أرسل نتيجتك إلى الأستاذ خالد</h4>
+                    <input type="text" id="student-name-input" class="share-name-input" placeholder="اكتب اسمك هنا أولًا">
+                    <div id="share-warning" class="share-warning">من فضلك اكتب اسمك أولًا قبل الإرسال ✋</div>
+                    <div>
+                        <button class="btn btn-share" onclick="sendResultToTeacher(${score}, ${currentQuestions.length})">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.656.843 5.12 2.26 7.15L.626 24l5.01-1.61c1.983 1.25 4.27 1.91 6.395 1.91 6.646 0 12.03-5.385 12.03-12.031S18.677 0 12.031 0zm6.544 17.202c-.273.766-1.58 1.464-2.185 1.503-.56.035-1.28.23-4.085-.86-3.39-1.32-5.59-4.78-5.736-4.97-.145-.19-1.37-1.82-1.37-3.475 0-1.655.857-2.47 1.164-2.8.307-.33.67-.413.89-.413.22 0 .44 0 .633.01.205.01.482-.08.736.53.264.634.904 2.203.984 2.366.08.163.133.353.033.553-.1.2-.153.326-.307.506-.154.18-.32.38-.453.506-.153.153-.314.316-.134.626.18.31.8 1.32 1.71 2.13.176.157.363.31.558.45 1.05.76 1.83 1.05 2.13 1.18.3.13.474.11.652-.09.18-.205.766-.893.97-1.2.204-.307.41-.256.69-.153.28.103 1.77.836 2.074.99.304.153.506.23.582.356.076.126.076.73-.197 1.496z"/></svg>
+                            إرسال النتيجة عبر واتساب
+                        </button>
+                    </div>
+                </div>
+                <button class="btn back-btn" style="font-size:1.1rem; padding:15px 30px; margin-top: 18px;" onclick="returnToMenu()">العودة للقائمة الرئيسية</button>
+            </div>
+        `;
+    }
+
+    function sendResultToTeacher(score, total) {
+        const nameInput = document.getElementById('student-name-input');
+        const warning = document.getElementById('share-warning');
+        const name = nameInput.value.trim();
+        if (!name) {
+            warning.style.display = 'block';
+            nameInput.classList.add('shake');
+            nameInput.focus();
+            setTimeout(() => nameInput.classList.remove('shake'), 500);
+            return;
+        }
+        warning.style.display = 'none';
+        const gameTitle = currentGame ? currentGame.title : '';
+        const message =
+            `📚 نتيجة طالب - ${LESSON_NAME}\n` +
+            `👤 اسم الطالب: ${name}\n` +
+            `🎮 اللعبة: ${gameTitle}\n` +
+            `✅ النتيجة: ${score} من ${total}\n` +
+            `⭐ نسبة النجاح: ${Math.round((score/total)*100)}%`;
+        const url = `https://wa.me/201143270328?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+
+    function startGame(gameData) {
+        initAudio();
+        currentGame = gameData;
+        currentQuestions = shuffleArray([...gameData.questions]);
+        qIndex = 0;
+        wrongAnswers = []; // تصفير قائمة الأخطاء
+        
+        document.getElementById('home-screen').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('main-footer').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        document.getElementById('game-title').innerText = gameData.title;
+        
+        renderNextState();
+    }
+
+    function renderNextState() {
+        if (qIndex >= currentQuestions.length) {
+            gameComplete();
+            return;
+        }
+
+        const gc = document.getElementById('game-container');
+        gc.innerHTML = '';
+        updateProgress();
+
+        if (currentGame.type === 'mcq') {
+            renderMCQ(gc);
+        } else if (currentGame.type === 'bubbles') {
+            renderBubbles(gc);
+        } else if (currentGame.type === 'shooting') {
+            renderShooting(gc);
+        } else if (currentGame.type === 'true_false') {
+            renderTrueFalse(gc);
+        } else if (currentGame.type === 'genius') {
+            renderGenius(gc);
+        }
+    }
+
+    // --- أنماط الألعاب ---
+
+    // 1. اختيارات (MCQ)
+    function renderMCQ(container) {
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'options-grid';
+        
+        let isAnswered = false;
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            btnContainer.appendChild(btn);
+        });
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        container.appendChild(qBox);
+        container.appendChild(btnContainer);
+    }
+
+    // 2. صح أم خطأ
+    function renderTrueFalse(container) {
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const tfContainer = document.createElement('div');
+        tfContainer.className = 'tf-grid';
+        
+        let isAnswered = false;
+
+        // ترتيب ثابت (صح يميناً وخطأ يساراً)
+        const fixedOptions = ["صح", "خطأ"];
+
+        fixedOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.flex = '1';
+            btn.style.minWidth = '200px';
+            btn.style.fontSize = '2rem';
+            btn.style.padding = '30px';
+            btn.style.justifyContent = 'center';
+            
+            if(opt === "صح") {
+                btn.style.background = "linear-gradient(to bottom, #10b981, #059669)";
+                btn.style.borderBottomColor = "#047857";
+            } else {
+                btn.style.background = "linear-gradient(to bottom, #ef4444, #dc2626)";
+                btn.style.borderBottomColor = "#b91c1c";
+            }
+
+            btn.innerText = opt;
+            
+            btn.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    btn.classList.add('btn-wrong');
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+            tfContainer.appendChild(btn);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(tfContainer);
+    }
+
+    // 5. تحدي العباقرة (سؤال بعدّاد زمني)
+    function renderGenius(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const wrap = document.createElement('div');
+        wrap.className = 'genius-wrap';
+
+        const badge = document.createElement('div');
+        badge.className = 'genius-badge';
+        badge.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3a6 6 0 0 0-6 6c0 1.887.454 2.921 1.5 4.5.5.75 1 1.5 1 2.5h7c0-1 .5-1.75 1-2.5C17.546 11.921 18 10.887 18 9a6 6 0 0 0-6-6z"></path></svg> تحدي العباقرة`;
+
+        const timerTrack = document.createElement('div');
+        timerTrack.className = 'genius-timer-track';
+        const timerBar = document.createElement('div');
+        timerBar.className = 'genius-timer-bar';
+        timerTrack.appendChild(timerBar);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.style.background = 'rgba(255,255,255,0.95)';
+        qBox.innerText = qData.q;
+
+        const optContainer = document.createElement('div');
+        optContainer.className = 'genius-options';
+
+        let isAnswered = false;
+        const TOTAL_TIME = 12000; // 12 ثانية لكل سؤال
+        let startTime = Date.now();
+
+        function finishQuestion(isCorrect, selectedText) {
+            if (isAnswered) return;
+            isAnswered = true;
+            clearInterval(geniusTimerInterval);
+            if (!isCorrect) {
+                wrongAnswers.push({ question: qData.q, correct: correctText, selected: selectedText || "انتهى الوقت!" });
+            }
+            showFeedback(isCorrect, () => { qIndex++; renderNextState(); });
+        }
+
+        shuffledOptions.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                if (isAnswered) return;
+                if (opt === correctText) {
+                    btn.classList.add('btn-correct');
+                    finishQuestion(true, opt);
+                } else {
+                    btn.classList.add('btn-wrong');
+                    finishQuestion(false, opt);
+                }
+            };
+            optContainer.appendChild(btn);
+        });
+
+        wrap.appendChild(badge);
+        wrap.appendChild(timerTrack);
+        container.appendChild(wrap);
+        container.appendChild(qBox);
+        container.appendChild(optContainer);
+
+        geniusTimerInterval = setInterval(() => {
+            if (isAnswered) { clearInterval(geniusTimerInterval); return; }
+            const elapsed = Date.now() - startTime;
+            const pct = Math.max(0, 100 - (elapsed / TOTAL_TIME) * 100);
+            timerBar.style.width = pct + '%';
+            if (elapsed >= TOTAL_TIME) {
+                clearInterval(geniusTimerInterval);
+                finishQuestion(false, null);
+            }
+        }, 80);
+    }
+
+    // 3. الفقاعات المتساقطة
+    function renderBubbles(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'bubbles-area';
+
+        let bubbles = [];
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.innerHTML = `<span>${opt}</span>`;
+            
+            let leftPos = 2 + (index * 24); 
+            bubble.style.left = leftPos + '%';
+            
+            let topPos = -100 - (Math.random() * 80);
+            bubble.style.top = topPos + 'px';
+            
+            let speed = 0.55 + Math.random() * 0.45; 
+
+            bubble.onclick = () => {
+                if (isAnswered) return;
+                isAnswered = true;
+                clearInterval(animInterval); clearInterval(geniusTimerInterval);
+                if (opt === correctText) {
+                    bubble.style.background = 'var(--success)';
+                    bubble.style.color = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bubble.style.background = 'var(--danger)';
+                    bubble.style.color = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bubble);
+            bubbles.push({ el: bubble, top: topPos, speed: speed, isCorrect: opt === correctText, active: true });
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 30);
+    }
+
+    // 4. التنشين
+    function renderShooting(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            
+            let topPos = 15 + (index * 20); 
+            bird.style.top = topPos + '%';
+            
+            let pos = (index % 2 === 0) ? -200 : window.innerWidth;
+            let speed = (Math.random() * 1.0 + 0.8) * ((index % 2 === 0) ? 1 : -1);
+            
+            bird.style.left = pos + 'px';
+
+            bird.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bird);
+
+            animInterval = setInterval(() => {
+                if (isAnswered) return;
+                pos += speed;
+                if (pos > window.innerWidth + 50) pos = -250;
+                if (pos < -250) pos = window.innerWidth + 50;
+                bird.style.left = pos + 'px';
+            }, 30);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.innerHTML = `💡 اضغط على الفقاعة التي تحمل الإجابة الصحيحة قبل أن تسقط!`;
+        container.appendChild(hint);
+
+        let areaHeight = 400;
+
+        animInterval = setInterval(() => {
+            if (isAnswered) return;
+            bubbles.forEach(b => {
+                if (!b.active) return;
+                b.top += b.speed;
+                b.el.style.top = b.top + 'px';
+                
+                b.el.style.transform = `translateX(${Math.sin(b.top / 20) * 5}px)`;
+
+                if (b.top > areaHeight) {
+                    b.active = false;
+                    b.el.style.display = 'none';
+                    if (b.isCorrect && !isAnswered) {
+                        isAnswered = true;
+                        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+                        wrongAnswers.push({ question: qData.q, correct: correctText, selected: "سقطت دون اختيار" });
+                        showFeedback(false, () => { qIndex++; renderNextState(); });
+                    }
+                }
+            });
+        }, 20);
+    }
+
+    // 4. التنشين
+    function renderShooting(container) {
+        clearInterval(animInterval); clearInterval(geniusTimerInterval);
+        const qData = currentQuestions[qIndex];
+        const correctText = qData.options[qData.ans];
+        const shuffledOptions = shuffleArray([...qData.options]);
+
+        const qBox = document.createElement('div');
+        qBox.className = 'question-box';
+        qBox.innerText = qData.q;
+        
+        const area = document.createElement('div');
+        area.className = 'shooting-area';
+
+        let isAnswered = false;
+
+        shuffledOptions.forEach((opt, index) => {
+            const bird = document.createElement('div');
+            bird.className = 'target-bird';
+            
+            bird.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> <span>${opt}</span>`;
+            
+            let topPos = 15 + (index * 20); 
+            bird.style.top = topPos + '%';
+            
+            let pos = (index % 2 === 0) ? -200 : window.innerWidth;
+            let speed = (Math.random() * 2.5 + 1.5) * ((index % 2 === 0) ? 1 : -1);
+            
+            bird.style.left = pos + 'px';
+
+            bird.onclick = () => {
+                if(isAnswered) return;
+                isAnswered = true;
+
+                if (opt === correctText) {
+                    bird.style.background = 'var(--success)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    showFeedback(true, () => { qIndex++; renderNextState(); });
+                } else {
+                    bird.style.background = 'var(--danger)';
+                    bird.style.color = 'white';
+                    bird.style.borderColor = 'white';
+                    wrongAnswers.push({ question: qData.q, correct: correctText, selected: opt });
+                    showFeedback(false, () => { qIndex++; renderNextState(); });
+                }
+            };
+
+            area.appendChild(bird);
+
+            animInterval = setInterval(() => {
+                if (isAnswered) return;
+                pos += speed;
+                if (pos > window.innerWidth + 50) pos = -250;
+                if (pos < -250) pos = window.innerWidth + 50;
+                bird.style.left = pos + 'px';
+            }, 20);
+        });
+
+        container.appendChild(qBox);
+        container.appendChild(area);
+        
+        let hint = document.createElement('div');
+        hint.style.textAlign = 'center';
+        hint.style.marginTop = '15px';
+        hint.style.color = 'var(--primary)';
+        hint.style.fontWeight = 'bold';
+        hint.style.fontSize = '1.1rem';
+        hint.style.display = 'flex';
+        hint.style.alignItems = 'center';
+        hint.style.justifyContent = 'center';
+        hint.style.gap = '8px';
+        hint.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> اضغط على الإجابة الصحيحة وهي تتحرك لاصطيادها!`;
+        container.appendChild(hint);
+    }
+
+    window.onload = initApp;
+</script>
+</body>
+</html>
